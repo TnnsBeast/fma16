@@ -1,0 +1,36 @@
+ 
+****************************************
+Report : power
+        -hier
+        -analysis_effort low
+Design : fma16wrapper
+Version: W-2024.09-SP3
+Date   : Mon Apr 28 21:53:27 2025
+****************************************
+
+
+Library(s) Used:
+
+    sky130_osu_sc_12T_ms_TT_1P8_25C.ccs (File: /opt/riscv/cad/lib/sky130_osu_sc_t12/12T_ms/lib/sky130_osu_sc_12T_ms_TT_1P8_25C.ccs.db)
+
+
+Operating Conditions: PVT_1P8V_25C   Library: sky130_osu_sc_12T_ms_TT_1P8_25C.ccs
+Wire Load Model Mode: top
+
+
+Global Operating Voltage = 1.8  
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000pf
+    Time Units = 1ns
+    Dynamic Power Units = 1mW    (derived from V,C,T units)
+    Leakage Power Units = 1nW
+
+
+--------------------------------------------------------------------------------
+                                       Switch   Int      Leak     Total
+Hierarchy                              Power    Power    Power    Power    %
+--------------------------------------------------------------------------------
+fma16wrapper                              3.736    1.933  274.164    5.669 100.0
+  fma16 (fma16)                           3.710    1.169  267.764    4.880  86.1
+1

@@ -1,0 +1,69 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay min
+        -nets
+        -max_paths 1
+        -transition_time
+        -capacitance
+Design : fma16wrapper
+Version: W-2024.09-SP3
+Date   : Mon Apr 28 21:53:27 2025
+****************************************
+
+Operating Conditions: PVT_1P8V_25C   Library: sky130_osu_sc_12T_ms_TT_1P8_25C.ccs
+Wire Load Model Mode: top
+
+  Startpoint: roundmodeint_reg[0]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: result_reg[4]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: min
+
+  Point                                       Fanout       Cap     Trans      Incr       Path
+  ----------------------------------------------------------------------------------------------
+  clock clk (rise edge)                                                   0.000000   0.000000
+  clock network delay (ideal)                                             0.000000   0.000000
+  roundmodeint_reg[0]/CK (sky130_osu_sc_12T_ms__dff_1)          0.000000  0.000000   0.000000 r
+  roundmodeint_reg[0]/Q (sky130_osu_sc_12T_ms__dff_1)           0.071232  0.213199   0.213199 r
+  roundmodeint[0] (net)                         3     0.006688            0.000000   0.213199 r
+  fma16/roundmode[0] (fma16)                                              0.000000   0.213199 r
+  fma16/roundmode[0] (net)                            0.006688            0.000000   0.213199 r
+  fma16/round/roundmode[0] (rounding_unit)                                0.000000   0.213199 r
+  fma16/round/roundmode[0] (net)                      0.006688            0.000000   0.213199 r
+  fma16/round/U183/Y (sky130_osu_sc_12T_ms__and2_1)             0.035421  0.095221   0.308421 r
+  fma16/round/n98 (net)                         1     0.002482            0.000000   0.308421 r
+  fma16/round/U105/Y (sky130_osu_sc_12T_ms__nand2_1)            0.055089  0.065228   0.373648 f
+  fma16/round/n25 (net)                         3     0.005375            0.000000   0.373648 f
+  fma16/round/U106/Y (sky130_osu_sc_12T_ms__nand2_l)            0.041957  0.050841   0.424489 r
+  fma16/round/n49 (net)                         1     0.001932            0.000000   0.424489 r
+  fma16/round/U112/Y (sky130_osu_sc_12T_ms__nor2_1)             0.043156  0.054315   0.478804 f
+  fma16/round/n74 (net)                         3     0.006947            0.000000   0.478804 f
+  fma16/round/U41/Y (sky130_osu_sc_12T_ms__inv_1)               0.046649  0.056082   0.534887 r
+  fma16/round/n41 (net)                         2     0.004061            0.000000   0.534887 r
+  fma16/round/U199/Y (sky130_osu_sc_12T_ms__oai21_l)            0.033051  0.058023   0.592910 f
+  fma16/round/n134 (net)                        1     0.002395            0.000000   0.592910 f
+  fma16/round/U200/Y (sky130_osu_sc_12T_ms__nand2_1)            0.035673  0.047918   0.640827 r
+  fma16/round/final_result[4] (net)             1     0.002566            0.000000   0.640827 r
+  fma16/round/final_result[4] (rounding_unit)                             0.000000   0.640827 r
+  fma16/result[4] (net)                               0.002566            0.000000   0.640827 r
+  fma16/result[4] (fma16)                                                 0.000000   0.640827 r
+  resultint[4] (net)                                  0.002566            0.000000   0.640827 r
+  result_reg[4]/D (sky130_osu_sc_12T_ms__dff_1)                 0.035673  0.000000   0.640827 r
+  data arrival time                                                                  0.640827
+
+  clock clk (rise edge)                                                   0.000000   0.000000
+  clock network delay (ideal)                                             0.000000   0.000000
+  result_reg[4]/CK (sky130_osu_sc_12T_ms__dff_1)                          0.000000   0.000000 r
+  library hold time                                                       -0.050440  -0.050440
+  data required time                                                                 -0.050440
+  ----------------------------------------------------------------------------------------------
+  data required time                                                                 -0.050440
+  data arrival time                                                                  -0.640827
+  ----------------------------------------------------------------------------------------------
+  slack (MET)                                                                        0.691267
+
+
+1

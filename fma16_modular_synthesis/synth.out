@@ -1,0 +1,768 @@
+Info: [VCS_SAVE_RESTORE_INFO] ASLR (Address Space Layout Randomization) is detected on the machine. To enable $save functionality, ASLR will be switched off and simv re-executed.
+Please use '-no_save' simv switch to avoid this.
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+               Version W-2024.09-SP3 for linux64 - Jan 07, 2025 
+
+                    Copyright (c) 1988 - 2025 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+Initializing...
+Current time:       Mon Apr 28 21:51:16 2025
+Hostname:           vlsi.eng.hmc.edu
+CPU Model:          12th Gen Intel(R) Core(TM) i7-12700K
+CPU Details:        Cores = 20 : Sockets = 1 : Cache Size = 25600 KB : Freq = 0.80 GHz
+OS:                 Linux 5.14.0-503.22.1.el9_5.x86_64
+RAM:                 62 GB (Free  48 GB)
+Swap:                31 GB (Free  25 GB)
+Work Filesystem:    /home mounted to /dev/mapper/almalinux_vlsi-home
+Tmp Filesystem:     / mounted to /dev/mapper/almalinux_vlsi-root
+Work Disk:          3495 GB (Free 1112 GB)
+Tmp Disk:           2014 GB (Free 1519 GB)
+
+CPU Load: 4%, Ram Free: 48 GB, Swap Free: 25 GB, Work Disk Free: 1112 GB, Tmp Disk Free: 1519 GB
+#
+# Synthesis Synopsys Flow
+# james.stine@okstate.edu 27 Sep 2015
+#
+# start run clock
+set t1 [clock seconds]
+1745902276
+# Ignore unnecessary warnings:
+# intraassignment delays for nonblocking assignments are ignored
+suppress_message {VER-130} 
+# statements in initial blocks are ignored
+suppress_message {VER-281} 
+suppress_message {VER-173} 
+# Unsupported system task '$warn'
+suppress_message {VER-274}
+# Disable Warning:  Little argument or return value checking implemented for system task or function '$readmemh'. (VER-209)
+suppress_message {VER-209}
+# Enable Multicore
+set_host_options -max_cores $::env(MAXCORES)
+1
+# get outputDir and configDir from environment (Makefile)
+set outputDir $::env(OUTPUTDIR)
+runs/500_MHz_2025-04-28-21-51
+set hdl_src ".."
+..
+set saifpower $::env(SAIFPOWER)
+0
+set maxopt $::env(MAXOPT)
+0
+set drive $::env(DRIVE)
+FLOP
+eval file copy -force [glob ${hdl_src}/fma16.sv] {$outputDir/hdl/}
+eval file copy -force [glob ${hdl_src}/fma16wrapper.sv] {$outputDir/hdl/}
+# Check if a wrapper is needed and create it (to pass parameters when cvw_t parameters are used)
+set wrapper 0
+0
+# Enables name mapping
+if { $saifpower == 1 } {
+    saif_map -start
+}
+# Verilog files
+set my_verilog_files [glob $outputDir/hdl/cvw.sv $outputDir/hdl/*.sv]
+runs/500_MHz_2025-04-28-21-51/hdl/fma16wrapper.sv runs/500_MHz_2025-04-28-21-51/hdl/fma16.sv
+# Set toplevel
+set my_toplevel fma16wrapper
+fma16wrapper
+set my_design $::env(DESIGN)
+fma16
+# Set number of significant digits
+set report_default_significant_digits 6
+6
+# V(HDL) Unconnectoed Pins Output
+set verilogout_show_unconnected_pins "true"
+true
+set vhdlout_show_unconnected_pins "true"
+true
+#  Set up MW List
+set MY_LIB_NAME $my_toplevel
+fma16wrapper
+# Create MW
+if { [shell_is_in_topographical_mode] } {
+    echo "In Topographical Mode...processing\n"
+    create_mw_lib  -technology $MW_REFERENCE_LIBRARY/$MW_TECH_FILE.tf \
+        -mw_reference_library $mw_reference_library $outputDir/$MY_LIB_NAME
+    # Open MW
+    open_mw_lib $outputDir/$MY_LIB_NAME
+    
+    # TLU+
+    set_tlu_plus_files -max_tluplus $MAX_TLU_FILE -min_tluplus $MIN_TLU_FILE \
+	-tech2itf_map $PRS_MAP_FILE
+
+} else {
+    echo "In normal DC mode...processing\n"
+}
+In normal DC mode...processing
+
+# Due to parameterized Verilog must use analyze/elaborate and not 
+# read_verilog/vhdl (change to pull in Verilog and/or VHDL)
+#
+#set alib_library_analysis_path ./$outputDir
+define_design_lib WORK -path ./$outputDir/WORK
+1
+analyze -f sverilog -lib WORK $my_verilog_files
+Running PRESTO HDLC
+Compiling source file ./runs/500_MHz_2025-04-28-21-51/hdl/fma16wrapper.sv
+Compiling source file ./runs/500_MHz_2025-04-28-21-51/hdl/fma16.sv
+Presto compilation completed successfully.
+Loading db file '/opt/riscv/cad/lib/sky130_osu_sc_t12/12T_ms/lib/sky130_osu_sc_12T_ms_TT_1P8_25C.ccs.db'
+Information: Using CCS timing libraries. (TIM-024)
+Loading db file '/cad/synopsys/SYN/libraries/syn/dw_foundation.sldb'
+1
+elaborate $my_toplevel -lib WORK 
+Loading db file '/cad/synopsys/SYN/libraries/syn/gtech.db'
+Loading db file '/cad/synopsys/SYN/libraries/syn/standard.sldb'
+  Loading link library 'sky130_osu_sc_12T_ms_TT_1P8_25C.ccs'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+
+Inferred memory devices in process in routine 'fma16wrapper' in file
+	 ./runs/500_MHz_2025-04-28-21-51/hdl/fma16wrapper.sv'.
+==================================================================================
+|    Register Name    |   Type    | Width | Bus | MB |  Set  | Reset | ST | Line |
+==================================================================================
+|      zint_reg       | Flip-flop |  16   |  Y  | N  | None  | None  | N  |  21  |
+|      xint_reg       | Flip-flop |  16   |  Y  | N  | None  | None  | N  |  21  |
+|      yint_reg       | Flip-flop |  16   |  Y  | N  | None  | None  | N  |  21  |
+|     negzint_reg     | Flip-flop |   1   |  N  | N  | None  | None  | N  |  21  |
+|     mulint_reg      | Flip-flop |   1   |  N  | N  | None  | None  | N  |  21  |
+|     addint_reg      | Flip-flop |   1   |  N  | N  | None  | None  | N  |  21  |
+|     negpint_reg     | Flip-flop |   1   |  N  | N  | None  | None  | N  |  21  |
+|  roundmodeint_reg   | Flip-flop |   2   |  Y  | N  | None  | None  | N  |  21  |
+|      flags_reg      | Flip-flop |   4   |  Y  | N  | None  | None  | N  |  34  |
+|     result_reg      | Flip-flop |  16   |  Y  | N  | None  | None  | N  |  34  |
+==================================================================================
+Presto compilation completed successfully. (fma16wrapper)
+Module: fma16wrapper, Ports: 75, Input: 55, Output: 20, Inout: 0
+Module: fma16wrapper, Registers: 74, Async set/reset: 0, Sync set/reset: 0
+Information: Module fma16wrapper report end. (ELAB-965)
+Elaborated 1 design.
+Current design is now 'fma16wrapper'.
+Information: Building the design 'fma16'. (HDL-193)
+Presto compilation completed successfully. (fma16)
+Module: fma16, Ports: 74, Input: 54, Output: 20, Inout: 0
+Module: fma16, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Information: Module fma16 report end. (ELAB-965)
+Information: Building the design 'handle_control_signals'. (HDL-193)
+Presto compilation completed successfully. (handle_control_signals)
+Module: handle_control_signals, Ports: 100, Input: 52, Output: 48, Inout: 0
+Module: handle_control_signals, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Information: Module handle_control_signals report end. (ELAB-965)
+Information: Building the design 'compute_product'. (HDL-193)
+Presto compilation completed successfully. (compute_product)
+Module: compute_product, Ports: 110, Input: 34, Output: 76, Inout: 0
+Module: compute_product, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Information: Module compute_product report end. (ELAB-965)
+Information: Building the design 'align_z'. (HDL-193)
+Presto compilation completed successfully. (align_z)
+Module: align_z, Ports: 91, Input: 22, Output: 69, Inout: 0
+Module: align_z, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Information: Module align_z report end. (ELAB-965)
+Information: Building the design 'add_product_and_aligned_z'. (HDL-193)
+Presto compilation completed successfully. (add_product_and_aligned_z)
+Module: add_product_and_aligned_z, Ports: 226, Input: 155, Output: 71, Inout: 0
+Module: add_product_and_aligned_z, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Information: Module add_product_and_aligned_z report end. (ELAB-965)
+Information: Building the design 'normalize'. (HDL-193)
+Presto compilation completed successfully. (normalize)
+Module: normalize, Ports: 96, Input: 76, Output: 20, Inout: 0
+Module: normalize, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Information: Module normalize report end. (ELAB-965)
+Information: Building the design 'special_cases'. (HDL-193)
+Presto compilation completed successfully. (special_cases)
+Module: special_cases, Ports: 65, Input: 46, Output: 19, Inout: 0
+Module: special_cases, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Information: Module special_cases report end. (ELAB-965)
+Information: Building the design 'rounding_unit'. (HDL-193)
+
+Statistics for case statements in always block in file
+	'./runs/500_MHz_2025-04-28-21-51/hdl/fma16.sv'
+============================================================
+|    Line    |  full/ parallel  |      block location      |
+============================================================
+|    396     |    auto/auto     | always block at line 389 |
+|    408     |    auto/auto     | always block at line 389 |
+============================================================
+Presto compilation completed successfully. (rounding_unit)
+Module: rounding_unit, Ports: 42, Input: 24, Output: 18, Inout: 0
+Module: rounding_unit, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Information: Module rounding_unit report end. (ELAB-965)
+Information: Building the design 'flag_unit'. (HDL-193)
+Presto compilation completed successfully. (flag_unit)
+Module: flag_unit, Ports: 9, Input: 5, Output: 4, Inout: 0
+Module: flag_unit, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Information: Module flag_unit report end. (ELAB-965)
+Information: Building the design 'lzc'. (HDL-193)
+Warning:  ./runs/500_MHz_2025-04-28-21-51/hdl/fma16.sv:297: signed to unsigned part selection occurs. (VER-318)
+Presto compilation completed successfully. (lzc)
+Module: lzc, Ports: 77, Input: 70, Output: 7, Inout: 0
+Module: lzc, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Information: Module lzc report end. (ELAB-965)
+1
+# Set the current_design 
+current_design $my_toplevel
+Current design is 'fma16wrapper'.
+{fma16wrapper}
+link
+
+  Linking design 'fma16wrapper'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  sky130_osu_sc_12T_ms_TT_1P8_25C.ccs (library) /opt/riscv/cad/lib/sky130_osu_sc_t12/12T_ms/lib/sky130_osu_sc_12T_ms_TT_1P8_25C.ccs.db
+  dw_foundation.sldb (library) /cad/synopsys/SYN/libraries/syn/dw_foundation.sldb
+
+1
+# Reset all constraints 
+reset_design
+1
+# Power Dissipation Analysis
+######### OPTIONAL !!!!!!!!!!!!!!!!
+if { $saifpower == 1 } {
+    read_saif -input power.saif -instance_name testbench/dut/core -auto_map_names -verbose
+}
+# Set reset false path
+if {$drive != "INV"} {
+    set_false_path -from [get_ports reset]
+}
+Warning: Can't find port 'reset' in design 'fma16wrapper'. (UID-95)
+Error: Value for list '-from' must have 1 elements. (CMD-036)
+0
+# for PPA multiplexer synthesis
+if {(($::env(DESIGN) == "ppa_mux2d_1") || ($::env(DESIGN) == "ppa_mux4d_1") || ($::env(DESIGN) == "ppa_mux8d_1"))} {
+    set_false_path -from {s}
+}
+# Set Frequency in [MHz] or period in [ns]
+set my_clock_pin clk
+clk
+set my_uncertainty 0.0
+0.0
+set my_clk_freq_MHz $::env(FREQ)
+500
+set my_period [expr 1000.0 / $my_clk_freq_MHz]
+2.0
+# Create clock object 
+set find_clock [ find port [list $my_clock_pin] ]
+{clk}
+if {  $find_clock != [list] } {
+    echo "Found clock!"
+    set my_clk $my_clock_pin
+    create_clock -period $my_period $my_clk
+    set_clock_uncertainty $my_uncertainty [get_clocks $my_clk]
+ } else {
+    echo "Did not find clock! Design is probably combinational!"
+    set my_clk vclk
+    create_clock -period $my_period -name $my_clk
+}
+Found clock!
+1
+# Optimize paths that are close to critical
+set_critical_range 0.05 $current_design
+1
+# Partitioning - flatten or hierarchically synthesize
+if { $maxopt == 1 } {
+    ungroup -all -simple_names -flatten 
+}
+# Set input pins except clock
+set all_in_ex_clk [remove_from_collection [all_inputs] [get_ports $my_clk]]
+{x[15] x[14] x[13] x[12] x[11] x[10] x[9] x[8] x[7] x[6] x[5] x[4] x[3] x[2] x[1] x[0] y[15] y[14] y[13] y[12] y[11] y[10] y[9] y[8] y[7] y[6] y[5] y[4] y[3] y[2] y[1] y[0] z[15] z[14] z[13] z[12] z[11] z[10] z[9] z[8] z[7] z[6] z[5] z[4] z[3] z[2] z[1] z[0] mul add negp negz roundmode[1] roundmode[0]}
+# Specifies delays be propagated through the clock network
+# This is getting optimized poorly in the current flow, causing a lot of clock skew 
+# and unrealistic bad timing results.
+# set_propagated_clock [get_clocks $my_clk]
+# Setting constraints on input ports 
+if {$tech == "sky130"} {
+    if {$drive == "INV"} {
+	    set_driving_cell -lib_cell inv -pin Y $all_in_ex_clk
+    } elseif {$drive == "FLOP"} {
+	    set_driving_cell  -lib_cell sky130_osu_sc_12T_ms__dff_1 -pin Q $all_in_ex_clk
+    }
+} elseif {$tech == "sky90"} {
+    if {$drive == "INV"} {
+	    set_driving_cell -lib_cell scc9gena_inv_1 -pin Y $all_in_ex_clk
+    } elseif {$drive == "FLOP"} {
+	    set_driving_cell  -lib_cell scc9gena_dfxbp_1 -pin Q $all_in_ex_clk
+    }
+} elseif {$tech == "tsmc28" || $tech=="tsmc28psyn"} {
+    if {$drive == "INV"} {
+	    set_driving_cell -lib_cell INVD1BWP30P140 -pin ZN $all_in_ex_clk
+    } elseif {$drive == "FLOP"} {
+        set_driving_cell -lib_cell DFQD1BWP30P140 -pin Q $all_in_ex_clk
+    }
+}
+1
+# Set input/output delay
+if {$drive == "FLOP"} {
+    set_input_delay 0.0 -max -clock $my_clk $all_in_ex_clk
+    set_output_delay 0.0 -max -clock $my_clk [all_outputs]
+} else {
+    set_input_delay 0.0 -max -clock $my_clk $all_in_ex_clk
+    set_output_delay 0.0 -max -clock $my_clk [all_outputs]
+}
+1
+# Setting load constraint on output ports 
+if {$tech == "sky130"} {
+    if {$drive == "INV"} {
+	    set_load [expr [load_of sky130_osu_sc_12T_ms_TT_1P8_25C.ccs/sky130_osu_sc_12T_ms__inv_4/A] * 1] [all_outputs]
+    } elseif {$drive == "FLOP"} {
+        set_load [expr [load_of sky130_osu_sc_12T_ms_TT_1P8_25C.ccs/sky130_osu_sc_12T_ms__dff_1/D] * 1] [all_outputs]
+    }
+ } elseif {$tech == "sky90"} {
+    if {$drive == "INV"} {
+	    set_load [expr [load_of scc9gena_tt_1.2v_25C/scc9gena_inv_4/A] * 1] [all_outputs]
+    } elseif {$drive == "FLOP"} {
+        set_load [expr [load_of scc9gena_tt_1.2v_25C/scc9gena_dfxbp_1/D] * 1] [all_outputs]
+    }
+} elseif {$tech == "tsmc28" || $tech == "tsmc28psyn"} {
+    if {$drive == "INV"} {
+	    set_load [expr [load_of tcbn28hpcplusbwp30p140tt0p9v25c/INVD4BWP30P140/I] * 1] [all_outputs]
+    } elseif {$drive == "FLOP"} {
+        set_load [expr [load_of tcbn28hpcplusbwp30p140tt0p9v25c/DFQD1BWP30P140/D] * 1] [all_outputs]
+    }
+}
+1
+if {$tech != "tsmc28psyn"} {
+    # Set the wire load model 
+    set_wire_load_mode "top"
+}
+1
+# Set switching activities
+# default activity factors are 1 for clocks, 0.1 for others
+# static probability of 0.5 is used for leakage
+# Attempt Area Recovery - if looking for minimal area
+# set_max_area 2000
+# Set fanout
+set_max_fanout 6 $all_in_ex_clk
+1
+# Fix hold time violations (DH: this doesn't seem to be working right now)
+#set_fix_hold [all_clocks]
+# Deal with constants and buffers to isolate ports
+set_fix_multiple_port_nets -all -buffer_constants
+1
+# setting up the group paths to find out the required timings
+# group_path -name OUTPUTS -to [all_outputs]
+# group_path -name INPUTS -from [all_inputs] 
+# group_path -name COMBO -from [all_inputs] -to [all_outputs]
+# Save Unmapped Design
+# set filename [format "%s%s%s%s" $outputDir "/unmapped/" $my_toplevel ".ddc"]
+# write_file -format ddc -hierarchy -o $filename
+# Compile statements
+if { $maxopt == 1 } {
+    compile_ultra -retime
+    optimize_registers
+} else {
+    compile_ultra -no_seq_output_inversion -no_boundary_optimization
+}
+Information: Auto ungrouping of the design is disabled because the '-no_boundary_optimization' is used. (OPT-1316)
+Warning: The value of variable 'compile_preserve_subdesign_interfaces' has been changed to true because '-no_boundary_optimization' is used. (OPT-133)
+Information: Starting from 2013.12 release, constant propagation is enabled even when boundary optimization is disabled. (OPT-1318)
+Information: Performing leakage power optimization. (PWR-850)
+CPU Load: 4%, Ram Free: 48 GB, Swap Free: 25 GB, Work Disk Free: 1112 GB, Tmp Disk Free: 1519 GB
+Alib files are up-to-date.
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | W-2024.09-DWBB_202409.3 |     *     |
+| Licensed DW Building Blocks        | W-2024.09-DWBB_202409.3 |     *     |
+============================================================================
+
+====================================================================================================
+| Flow Information                                                                                 |
+----------------------------------------------------------------------------------------------------
+| Flow         | Design Compiler WLM                                                               |
+| Command Line | compile_ultra -no_seq_output_inversion -no_boundary_optimization                  |
+====================================================================================================
+| Design Information                                      | Value                                  |
+====================================================================================================
+| Number of Scenarios                                     | 0                                      |
+| Leaf Cell Count                                         | 2450                                   |
+| Number of User Hierarchies                              | 10                                     |
+| Sequential Cell Count                                   | 74                                     |
+| Macro Count                                             | 0                                      |
+| Pad Count                                               | 0                                      |
+| Number of Power Domains                                 | 0                                      |
+| Number of Path Groups                                   | 2                                      |
+| Number of VT Class                                      | 0                                      |
+| Number of Clocks                                        | 1                                      |
+| Number of Dont Touch Cells                              | 457                                    |
+| Number of Dont Touch Nets                               | 0                                      |
+| Number of Size Only Cells                               | 0                                      |
+| Design with Target Library Subset (with clock_path)     | false  (false )                        |
+| Design with UPF Data                                    | false                                  |
+----------------------------------------------------------------------------------------------------
+| Variables                                               | Value                                  |
+----------------------------------------------------------------------------------------------------
+| set_fix_multiple_port_nets                              | -all -buffer_constants                 |
+====================================================================================================
+
+Information: There are 90 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+  Simplifying Design 'fma16wrapper'
+
+LNC WARNING: Found output_to_output lib arc on sky130_osu_sc_12T_ms__addh_l.
+Loaded alib file './alib-52/sky130_osu_sc_12T_ms_TT_1P8_25C.ccs.db.alib'
+CPU Load: 4%, Ram Free: 48 GB, Swap Free: 25 GB, Work Disk Free: 1112 GB, Tmp Disk Free: 1519 GB
+Information: State dependent leakage is now switched from on to off.
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'normalize'
+Information: Added key list 'DesignWare' to design 'normalize'. (DDB-72)
+ Implement Synthetic for 'normalize'.
+  Processing 'compute_product'
+ Implement Synthetic for 'compute_product'.
+Information: Added key list 'DesignWare' to design 'compute_product'. (DDB-72)
+  Processing 'rounding_unit'
+Information: Added key list 'DesignWare' to design 'rounding_unit'. (DDB-72)
+ Implement Synthetic for 'rounding_unit'.
+  Processing 'handle_control_signals'
+  Processing 'lzc'
+  Processing 'fma16'
+  Processing 'add_product_and_aligned_z'
+ Implement Synthetic for 'add_product_and_aligned_z'.
+  Processing 'fma16wrapper'
+Information: The register 'flags_reg[1]' is a constant and will be removed. (OPT-1206)
+  Processing 'align_z'
+ Implement Synthetic for 'align_z'.
+Information: Added key list 'DesignWare' to design 'align_z'. (DDB-72)
+  Processing 'special_cases'
+Information: Added key list 'DesignWare' to design 'special_cases'. (DDB-72)
+  Processing 'flag_unit'
+CPU Load: 4%, Ram Free: 48 GB, Swap Free: 25 GB, Work Disk Free: 1112 GB, Tmp Disk Free: 1519 GB
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: The library cell 'sky130_osu_sc_12T_ms__tielo' in the library 'sky130_osu_sc_12T_ms_TT_1P8_25C.ccs' is not characterized for internal power. (PWR-536)
+Information: The library cell 'sky130_osu_sc_12T_ms__tiehi' in the library 'sky130_osu_sc_12T_ms_TT_1P8_25C.ccs' is not characterized for internal power. (PWR-536)
+Information: The target library(s) contains cell(s), other than black boxes, that are not characterized for internal power. (PWR-24)
+
+  Beginning Mapping Optimizations  (Ultra High effort)
+  -------------------------------
+Information: Added key list 'DesignWare' to design 'add_product_and_aligned_z'. (DDB-72)
+  Mapping Optimization (Phase 1)
+  Mapping Optimization (Phase 2)
+  Mapping Optimization (Phase 3)
+  Mapping Optimization (Phase 4)
+  Mapping Optimization (Phase 5)
+  Mapping Optimization (Phase 6)
+  Mapping Optimization (Phase 7)
+  Mapping Optimization (Phase 8)
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:18   50542.6      6.60     117.8       0.0                            213.8548
+    0:00:18   49784.6      7.19     127.6       0.0                            209.4272
+
+  Beginning Constant Register Removal
+  -----------------------------------
+
+  Beginning Global Optimizations
+  ------------------------------
+  Numerical Synthesis (Phase 1)
+  Numerical Synthesis (Phase 2)
+  Global Optimization (Phase 1)
+  Global Optimization (Phase 2)
+  Global Optimization (Phase 3)
+  Global Optimization (Phase 4)
+  Global Optimization (Phase 5)
+  Global Optimization (Phase 6)
+  Global Optimization (Phase 7)
+  Global Optimization (Phase 8)
+  Global Optimization (Phase 9)
+  Global Optimization (Phase 10)
+  Global Optimization (Phase 11)
+  Global Optimization (Phase 12)
+  Global Optimization (Phase 13)
+  Global Optimization (Phase 14)
+  Global Optimization (Phase 15)
+  Global Optimization (Phase 16)
+  Global Optimization (Phase 17)
+  Global Optimization (Phase 18)
+  Global Optimization (Phase 19)
+  Global Optimization (Phase 20)
+  Global Optimization (Phase 21)
+  Global Optimization (Phase 22)
+  Global Optimization (Phase 23)
+  Global Optimization (Phase 24)
+  Global Optimization (Phase 25)
+  Global Optimization (Phase 26)
+  Global Optimization (Phase 27)
+  Global Optimization (Phase 28)
+  Global Optimization (Phase 29)
+  Global Optimization (Phase 30)
+  Mapping 'add_product_and_aligned_z_DP_OP_12_130_6966_6'
+  Selecting critical implementations
+  Mapping 'align_z_DW01_sub_9'
+  Mapping 'align_z_DW01_sub_10'
+
+  Beginning Isolate Ports
+  -----------------------
+
+  Beginning Delay Optimization
+  ----------------------------
+    0:00:19   44803.9      7.36     130.5       0.0                            484.3731
+    0:00:26   48249.0      5.62     100.9       0.0                            425.5443
+    0:00:26   48249.0      5.62     100.9       0.0                            425.5443
+    0:00:26   48249.0      5.62     100.9       0.0                            425.5443
+    0:00:26   46695.9      5.61     100.8       0.0                            424.1367
+    0:00:26   44560.6      6.33     113.5       0.0                            395.9105
+
+  Beginning WLM Backend Optimization
+  --------------------------------------
+    0:00:27   41351.9      6.22     111.7       0.0                            340.0887
+    0:00:27   41328.4      6.12     109.7       0.0                            340.7508
+    0:00:27   41328.4      6.12     109.7       0.0                            340.7508
+    0:00:27   41328.4      6.12     109.7       0.0                            340.7508
+    0:00:27   41328.4      6.12     109.7       0.0                            340.7508
+    0:00:27   41312.8      6.12     109.6       0.0                            347.0954
+    0:00:27   41312.8      6.12     109.6       0.0                            347.0954
+    0:00:33   43435.9      5.52      99.3       0.0                            361.3528
+    0:00:33   43435.9      5.52      99.3       0.0                            361.3528
+    0:00:33   43439.8      5.50      98.9       0.0                            358.6015
+    0:00:33   43439.8      5.50      98.9       0.0                            358.6015
+    0:00:43   45619.0      5.35      96.1       0.0                            380.1988
+    0:00:43   45619.0      5.35      96.1       0.0                            380.1988
+    0:00:50   46749.6      5.06      90.7       0.0                            358.9028
+    0:00:50   46749.6      5.06      90.7       0.0                            358.9028
+    0:01:01   47829.0      4.99      89.6       0.0                            379.4289
+    0:01:01   47829.0      4.99      89.6       0.0                            379.4289
+    0:01:04   48165.0      4.95      89.0       0.0                            372.7347
+    0:01:04   48165.0      4.95      89.0       0.0                            372.7347
+    0:01:07   48237.8      4.94      88.8       0.0                            376.6272
+    0:01:07   48237.8      4.94      88.8       0.0                            376.6272
+    0:01:07   48238.3      4.94      88.8       0.0                            376.8320
+    0:01:07   48238.3      4.94      88.8       0.0                            376.8320
+    0:01:08   48248.1      4.94      88.8       0.0                            375.9203
+    0:01:08   48268.6      4.93      88.5       0.0 flags_reg[2]/D             376.0843
+    0:01:09   48241.7      4.92      88.3       0.0 flags_reg[2]/D             377.2721
+    0:01:09   48237.8      4.92      88.3       0.0                            377.2455
+    0:01:18   48820.0      4.89      87.8       0.0                            394.7426
+    0:01:18   48805.8      4.88      87.7       0.0 result_reg[13]/D           394.0173
+    0:01:19   48830.2      4.88      87.6       0.0 result_reg[13]/D           394.3909
+    0:01:19   48863.9      4.87      87.5       0.0                            394.3933
+    0:01:22   48978.7      4.87      87.4       0.0                            394.1480
+    0:01:22   48978.7      4.87      87.4       0.0                            394.1480
+    0:01:22   48941.6      4.87      87.4       0.0                            397.9252
+    0:01:22   48941.6      4.87      87.4       0.0                            397.9252
+    0:01:29   49114.5      4.86      87.3       0.0                            400.1685
+    0:01:29   49114.5      4.86      87.3       0.0                            400.1685
+    0:01:29   49110.6      4.86      87.3       0.0                            400.1419
+    0:01:29   49110.6      4.86      87.3       0.0                            400.1419
+    0:01:31   49176.5      4.86      87.3       0.0                            400.1268
+    0:01:31   49176.5      4.86      87.3       0.0                            400.1268
+    0:01:34   49282.0      4.86      87.2       0.0                            396.1574
+    0:01:34   49282.0      4.86      87.2       0.0                            396.1574
+    0:01:44   49831.5      4.84      86.8       0.0                            399.8623
+    0:01:44   49831.5      4.84      86.8       0.0                            399.8623
+    0:01:52   50153.3      4.83      86.7       0.0                            395.2753
+    0:01:52   50153.3      4.83      86.7       0.0                            395.2753
+    0:01:57   50473.2      4.82      86.5       0.0                            405.0008
+    0:01:57   50473.2      4.82      86.5       0.0                            405.0008
+    0:01:58   50482.0      4.81      86.5       0.0                            403.4074
+    0:01:58   50482.0      4.81      86.5       0.0                            403.4074
+    0:02:01   50636.3      4.81      86.4       0.0                            407.2219
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:02:01   50648.5      4.81      86.4       0.0                            407.3016
+    0:02:01   47237.1      4.82      86.5       0.0                            264.8523
+    0:02:02   47099.8      4.81      86.3       0.0                            262.9809
+    0:02:02   46418.0      4.81      86.3       0.0                            256.0107
+    0:02:02   46354.5      4.81      86.3       0.0                            255.3278
+    0:02:02   46354.5      4.81      86.3       0.0                            255.3278
+    0:02:02   46354.5      4.81      86.3       0.0                            259.7689
+
+  Beginning Delay Optimization HSVT Pass
+  --------------------------------------
+    0:02:02   46354.5      4.81      86.3       0.0                            259.7689
+    0:02:02   46354.5      4.81      86.3       0.0                            259.7689
+    0:02:02   46354.5      4.81      86.3       0.0                            259.7689
+    0:02:06   46669.1      4.79      86.0       0.0                            259.8296
+    0:02:07   45970.6      4.79      86.0       0.0                            252.7936
+    0:02:08   46138.2      4.79      86.0       0.0                            253.6886
+    0:02:08   46138.2      4.79      86.0       0.0                            253.6886
+    0:02:08   46130.4      4.79      86.0       0.0                            254.4635
+    0:02:08   46134.8      4.79      86.0       0.0                            254.4768
+    0:02:08   46134.8      4.79      86.0       0.0                            254.4768
+    0:02:09   45731.8      4.79      86.0       0.0                            253.5168
+CPU Load: 7%, Ram Free: 49 GB, Swap Free: 25 GB, Work Disk Free: 1112 GB, Tmp Disk Free: 1519 GB
+Loading db file '/opt/riscv/cad/lib/sky130_osu_sc_t12/12T_ms/lib/sky130_osu_sc_12T_ms_TT_1P8_25C.ccs.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+Information: State dependent leakage is now switched from off to on.
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+CPU Load: 7%, Ram Free: 49 GB, Swap Free: 25 GB, Work Disk Free: 1112 GB, Tmp Disk Free: 1519 GB
+Information: Total number of MV cells in the design.
+----------------------------------------------------------------------------------------------------
+ MV Cells                                           Total Number                                   
+----------------------------------------------------------------------------------------------------
+ Level Shifter:                                     0                                             
+ Enable Level Shifter:                              0                                             
+ Isolation Cell:                                    0                                             
+ Retention Cell:                                    0                                             
+ Retention Clamp Cell:                              0                                             
+ Switch Cell:                                       0                                             
+ Always-On Cell:                                    0                                             
+ Repeater Cell:                                     0                                             
+
+----------------------------------------------------------------------------------------------------
+Unmapped MV Cells 
+----------------------------------------------------------------------------------------------------
+0 Isolation Cells are unmapped 
+0 Retention Clamp Cells are unmapped 
+----------------------------------------------------------------------------------------------------
+1
+# Eliminate need for assign statements (yuck!)
+set verilogout_no_tri true
+true
+set verilogout_equation false
+false
+# setting to generate output files
+set write_v    1        ;# generates structual netlist
+1
+set write_sdc  1	;# generates synopsys design constraint file for p&r
+1
+set write_ddc  1	;# compiler file in ddc format
+1
+set write_sdf  1	;# sdf file for backannotated timing sim
+1
+set write_pow  1 	;# genrates estimated power report
+1
+set write_rep  1	;# generates estimated area and timing report
+1
+set write_cst  1        ;# generate report of constraints
+1
+set write_hier 1        ;# generate hierarchy report
+1
+# Report on DESIGN, not wrapper.  However, design has a suffix for the parameters.
+if { $wrapper == 1 } {
+    set designname [format "%s%s" $my_design "__*"]
+    current_design $designname
+
+    # recreate clock below wrapper level or reporting doesn't work properly
+    set find_clock [ find port [list $my_clock_pin] ]
+    if {  $find_clock != [list] } {
+        echo "Found clock!"
+        set my_clk $my_clock_pin
+        create_clock -period $my_period $my_clk
+        set_clock_uncertainty $my_uncertainty [get_clocks $my_clk]
+    } else {
+        echo "Did not find clock! Design is probably combinational!"
+        set my_clk vclk
+        create_clock -period $my_period -name $my_clk
+    }
+} 
+# Report Constraint Violators
+set filename [format "%s%s" $outputDir "/reports/constraint_all_violators.rpt"]
+runs/500_MHz_2025-04-28-21-51/reports/constraint_all_violators.rpt
+redirect $filename {report_constraint -all_violators}
+# Check design
+redirect $outputDir/reports/check_design.rpt { check_design }
+# Report Final Netlist (Hierarchical)
+set filename [format "%s%s%s%s" $outputDir "/mapped/" $my_design ".sv"]
+runs/500_MHz_2025-04-28-21-51/mapped/fma16.sv
+write_file -f verilog -hierarchy -output $filename
+Writing verilog file '/home/nchulani/cvw/examples/exercises/fma16/synthDC/runs/500_MHz_2025-04-28-21-51/mapped/fma16.sv'.
+Warning: Verilog writer has added 34 nets to module fma16 using SYNOPSYS_UNCONNECTED_ as prefix.  Please use the change_names command to make the correct changes before invoking the verilog writer.  (VO-11)
+Warning: Verilog writer has added 1 nets to module fma16wrapper using SYNOPSYS_UNCONNECTED_ as prefix.  Please use the change_names command to make the correct changes before invoking the verilog writer.  (VO-11)
+1
+set filename [format "%s%s%s%s" $outputDir "/mapped/" $my_design ".sdc"]
+runs/500_MHz_2025-04-28-21-51/mapped/fma16.sdc
+write_sdc $filename
+1
+set filename [format "%s%s%s%s" $outputDir  "/mapped/" $my_design ".ddc"]
+runs/500_MHz_2025-04-28-21-51/mapped/fma16.ddc
+write_file -format ddc -hierarchy -o $filename
+Writing ddc file 'runs/500_MHz_2025-04-28-21-51/mapped/fma16.ddc'.
+1
+set filename [format "%s%s%s%s" $outputDir "/mapped/" $my_design ".sdf"]
+runs/500_MHz_2025-04-28-21-51/mapped/fma16.sdf
+write_sdf $filename
+Information: Annotated 'cell' delays are assumed to include load delay. (UID-282)
+Information: Writing timing information to file '/home/nchulani/cvw/examples/exercises/fma16/synthDC/runs/500_MHz_2025-04-28-21-51/mapped/fma16.sdf'. (WT-3)
+1
+# Write SPEF file in case need more precision power exploration for TSMC28psyn
+if {$tech == "tsmc28psyn"} {
+    set filename [format "%s%s%s%s" $outputDir "/mapped/" $my_toplevel ".spef"]
+    redirect $filename { write_parasitics }
+}
+# QoR
+set filename [format "%s%s"  $outputDir "/reports/qor.rep"]
+runs/500_MHz_2025-04-28-21-51/reports/qor.rep
+redirect $filename { report_qor }
+# Report Timing
+set filename [format "%s%s" $outputDir "/reports/reportpath.rep"]
+runs/500_MHz_2025-04-28-21-51/reports/reportpath.rep
+#redirect $filename { report_path_group }
+set filename [format "%s%s" $outputDir  "/reports/timing.rep"]
+runs/500_MHz_2025-04-28-21-51/reports/timing.rep
+redirect $filename { report_timing -capacitance -transition_time -nets -nworst 1 }
+set filename [format "%s%s" $outputDir  "/reports/mindelay.rep"]
+runs/500_MHz_2025-04-28-21-51/reports/mindelay.rep
+redirect $filename { report_timing -capacitance -transition_time -nets -delay_type min -nworst 1 }
+#set filename [format "%s%s" $outputDir  "/reports/per_module_timing.rep"]
+#redirect -append $filename { echo "\n\n\n//// Critical paths through Stall ////\n\n\n" }
+#redirect -append $filename { report_timing -capacitance -transition_time -nets -through {Stall*} -nworst 1 }
+set filename [format "%s%s" $outputDir  "/reports/area.rep"]
+runs/500_MHz_2025-04-28-21-51/reports/area.rep
+redirect $filename { report_area -hierarchy -nosplit -physical -designware}
+set filename [format "%s%s" $outputDir  "/reports/power.rep"]
+runs/500_MHz_2025-04-28-21-51/reports/power.rep
+redirect $filename { report_power -hierarchy -levels 1 }
+set filename [format "%s%s" $outputDir  "/reports/constraint.rep"]
+runs/500_MHz_2025-04-28-21-51/reports/constraint.rep
+redirect $filename { report_constraint }
+set filename [format "%s%s" $outputDir  "/reports/hier.rep"]
+runs/500_MHz_2025-04-28-21-51/reports/hier.rep
+# redirect $filename { report_hierarchy }
+# end run clock and echo run time in minutes
+set t2 [clock seconds]
+1745902407
+set t [expr $t2 - $t1]
+131
+echo [expr $t/60]
+2
+quit 
+
+Memory usage for this session 215 Mbytes.
+Memory usage for this session including child processes 215 Mbytes.
+CPU usage for this session 131 seconds ( 0.04 hours ).
+Elapsed time for this session 132 seconds ( 0.04 hours ).
+
+Thank you...

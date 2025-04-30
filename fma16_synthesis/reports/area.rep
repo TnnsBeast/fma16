@@ -1,0 +1,78 @@
+ 
+****************************************
+Report : area
+Design : fma16wrapper
+Version: W-2024.09-SP3
+Date   : Mon Apr 28 21:38:29 2025
+****************************************
+
+Library(s) Used:
+
+    sky130_osu_sc_12T_ms_TT_1P8_25C.ccs (File: /opt/riscv/cad/lib/sky130_osu_sc_t12/12T_ms/lib/sky130_osu_sc_12T_ms_TT_1P8_25C.ccs.db)
+
+Number of ports:                          226
+Number of nets:                          5622
+Number of cells:                         5419
+Number of combinational cells:           5344
+Number of sequential cells:                73
+Number of macros/black boxes:               0
+Number of buf/inv:                       1450
+Number of references:                       4
+
+Combinational area:              38095.199412
+Buf/Inv area:                     7631.738198
+Noncombinational area:            2353.111324
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (No wire load specified)
+
+Total cell area:                 40448.310736
+Total area:                 undefined
+
+The above information was reported from the logical library. The following are from the physical library:
+
+Hierarchical area distribution
+------------------------------
+
+                                  Global cell area            Local cell area
+                                  -------------------  ----------------------------- 
+Hierarchical cell                 Absolute    Percent  Combi-      Noncombi-  Black-
+                                  Total       Total    national    national   boxes   Design
+--------------------------------  ----------  -------  ----------  ---------  ------  ---------
+fma16wrapper                      40448.3107    100.0      8.7912  2353.1113  0.0000  fma16wrapper
+fma16                             38086.4082     94.2  35841.2335     0.0000  0.0000  fma16
+fma16/priority_enc                 2245.1747      5.6   2245.1747     0.0000  0.0000  lzc
+--------------------------------  ----------  -------  ----------  ---------  ------  ---------
+Total                                                  38095.1994  2353.1113  0.0000
+
+
+Area of detected synthetic parts
+--------------------------------
+  No DW parts to report!
+
+Estimated area of ungrouped synthetic parts
+-------------------------------------------
+                                        Estimated  Perc. of
+  Module               Implem.  Count        Area cell area
+  -------------------- -------  ----- ----------- ---------
+  DP_OP_187_130_6203       str      1   4351.7996     10.8%
+  DP_OP_188_131_6205       str      1   4342.2217     10.7%
+  DP_OP_189J1_122_6875     str      1    385.2021      1.0%
+  DP_OP_189_132_6203       str      1   4410.6519     10.9%
+  DP_OP_190J1_123_4852     str      1    374.6889      0.9%
+  DP_OP_191J1_124_1619     str      1    352.4010      0.9%
+  DW01_inc             apparch      2    270.5736      0.7%
+  DW01_sub             apparch      2    316.9526      0.8%
+  DW01_sub              pparch      1    240.1204      0.6%
+  DW_cmp               apparch      6    149.1574      0.4%
+  DW_cmp                pparch      1   1824.6671      4.5%
+  DW_leftsh               astr      1   1195.6039      3.0%
+  DW_mult_uns           pparch      1   4962.6698     12.3%
+  DW_rightsh              astr      3   3500.3616      8.7%
+  -------------------- -------  ----- ----------- ---------
+  DP_OP Subtotal:                   6  14216.9652     35.1%
+  Total:                           23  26677.0717     66.0%
+
+Subtotal of datapath(DP_OP) cell area:  14216.9652  35.1%  (estimated)
+Total synthetic cell area:              26677.0717  66.0%  (estimated)
+
+1

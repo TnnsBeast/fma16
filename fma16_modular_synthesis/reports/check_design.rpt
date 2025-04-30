@@ -1,0 +1,89 @@
+ 
+****************************************
+check_design summary:
+Version:     W-2024.09-SP3
+Date:        Mon Apr 28 21:53:26 2025
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     68
+    Unconnected ports (LINT-28)                                    68
+
+Cells                                                               2
+    Nets connected to multiple pins on same cell (LINT-33)          2
+--------------------------------------------------------------------------------
+
+Warning: In design 'fma16', port 'flags[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'compute_product', port 'PBigm[68]' is not connected to any nets. (LINT-28)
+Warning: In design 'compute_product', port 'PBigm[67]' is not connected to any nets. (LINT-28)
+Warning: In design 'compute_product', port 'PBigm[66]' is not connected to any nets. (LINT-28)
+Warning: In design 'compute_product', port 'PBigm[65]' is not connected to any nets. (LINT-28)
+Warning: In design 'compute_product', port 'PBigm[64]' is not connected to any nets. (LINT-28)
+Warning: In design 'compute_product', port 'PBigm[63]' is not connected to any nets. (LINT-28)
+Warning: In design 'compute_product', port 'PBigm[62]' is not connected to any nets. (LINT-28)
+Warning: In design 'compute_product', port 'PBigm[61]' is not connected to any nets. (LINT-28)
+Warning: In design 'compute_product', port 'PBigm[60]' is not connected to any nets. (LINT-28)
+Warning: In design 'compute_product', port 'PBigm[59]' is not connected to any nets. (LINT-28)
+Warning: In design 'compute_product', port 'PBigm[58]' is not connected to any nets. (LINT-28)
+Warning: In design 'compute_product', port 'PBigm[57]' is not connected to any nets. (LINT-28)
+Warning: In design 'compute_product', port 'PBigm[56]' is not connected to any nets. (LINT-28)
+Warning: In design 'compute_product', port 'PBigm[55]' is not connected to any nets. (LINT-28)
+Warning: In design 'compute_product', port 'PBigm[54]' is not connected to any nets. (LINT-28)
+Warning: In design 'compute_product', port 'PBigm[53]' is not connected to any nets. (LINT-28)
+Warning: In design 'compute_product', port 'PBigm[52]' is not connected to any nets. (LINT-28)
+Warning: In design 'compute_product', port 'PBigm[51]' is not connected to any nets. (LINT-28)
+Warning: In design 'compute_product', port 'PBigm[50]' is not connected to any nets. (LINT-28)
+Warning: In design 'compute_product', port 'PBigm[49]' is not connected to any nets. (LINT-28)
+Warning: In design 'compute_product', port 'PBigm[48]' is not connected to any nets. (LINT-28)
+Warning: In design 'compute_product', port 'PBigm[47]' is not connected to any nets. (LINT-28)
+Warning: In design 'compute_product', port 'PBigm[46]' is not connected to any nets. (LINT-28)
+Warning: In design 'compute_product', port 'PBigm[45]' is not connected to any nets. (LINT-28)
+Warning: In design 'compute_product', port 'PBigm[44]' is not connected to any nets. (LINT-28)
+Warning: In design 'compute_product', port 'PBigm[43]' is not connected to any nets. (LINT-28)
+Warning: In design 'compute_product', port 'PBigm[42]' is not connected to any nets. (LINT-28)
+Warning: In design 'compute_product', port 'PBigm[41]' is not connected to any nets. (LINT-28)
+Warning: In design 'compute_product', port 'PBigm[40]' is not connected to any nets. (LINT-28)
+Warning: In design 'compute_product', port 'PBigm[39]' is not connected to any nets. (LINT-28)
+Warning: In design 'compute_product', port 'PBigm[38]' is not connected to any nets. (LINT-28)
+Warning: In design 'compute_product', port 'PBigm[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'align_z', port 'Am[68]' is not connected to any nets. (LINT-28)
+Warning: In design 'add_product_and_aligned_z', port 'Am[68]' is not connected to any nets. (LINT-28)
+Warning: In design 'add_product_and_aligned_z', port 'PBigm[68]' is not connected to any nets. (LINT-28)
+Warning: In design 'add_product_and_aligned_z', port 'PBigm[67]' is not connected to any nets. (LINT-28)
+Warning: In design 'add_product_and_aligned_z', port 'PBigm[66]' is not connected to any nets. (LINT-28)
+Warning: In design 'add_product_and_aligned_z', port 'PBigm[65]' is not connected to any nets. (LINT-28)
+Warning: In design 'add_product_and_aligned_z', port 'PBigm[64]' is not connected to any nets. (LINT-28)
+Warning: In design 'add_product_and_aligned_z', port 'PBigm[63]' is not connected to any nets. (LINT-28)
+Warning: In design 'add_product_and_aligned_z', port 'PBigm[62]' is not connected to any nets. (LINT-28)
+Warning: In design 'add_product_and_aligned_z', port 'PBigm[61]' is not connected to any nets. (LINT-28)
+Warning: In design 'add_product_and_aligned_z', port 'PBigm[60]' is not connected to any nets. (LINT-28)
+Warning: In design 'add_product_and_aligned_z', port 'PBigm[59]' is not connected to any nets. (LINT-28)
+Warning: In design 'add_product_and_aligned_z', port 'PBigm[58]' is not connected to any nets. (LINT-28)
+Warning: In design 'add_product_and_aligned_z', port 'PBigm[57]' is not connected to any nets. (LINT-28)
+Warning: In design 'add_product_and_aligned_z', port 'PBigm[56]' is not connected to any nets. (LINT-28)
+Warning: In design 'add_product_and_aligned_z', port 'PBigm[55]' is not connected to any nets. (LINT-28)
+Warning: In design 'add_product_and_aligned_z', port 'PBigm[54]' is not connected to any nets. (LINT-28)
+Warning: In design 'add_product_and_aligned_z', port 'PBigm[53]' is not connected to any nets. (LINT-28)
+Warning: In design 'add_product_and_aligned_z', port 'PBigm[52]' is not connected to any nets. (LINT-28)
+Warning: In design 'add_product_and_aligned_z', port 'PBigm[51]' is not connected to any nets. (LINT-28)
+Warning: In design 'add_product_and_aligned_z', port 'PBigm[50]' is not connected to any nets. (LINT-28)
+Warning: In design 'add_product_and_aligned_z', port 'PBigm[49]' is not connected to any nets. (LINT-28)
+Warning: In design 'add_product_and_aligned_z', port 'PBigm[48]' is not connected to any nets. (LINT-28)
+Warning: In design 'add_product_and_aligned_z', port 'PBigm[47]' is not connected to any nets. (LINT-28)
+Warning: In design 'add_product_and_aligned_z', port 'PBigm[46]' is not connected to any nets. (LINT-28)
+Warning: In design 'add_product_and_aligned_z', port 'PBigm[45]' is not connected to any nets. (LINT-28)
+Warning: In design 'add_product_and_aligned_z', port 'PBigm[44]' is not connected to any nets. (LINT-28)
+Warning: In design 'add_product_and_aligned_z', port 'PBigm[43]' is not connected to any nets. (LINT-28)
+Warning: In design 'add_product_and_aligned_z', port 'PBigm[42]' is not connected to any nets. (LINT-28)
+Warning: In design 'add_product_and_aligned_z', port 'PBigm[41]' is not connected to any nets. (LINT-28)
+Warning: In design 'add_product_and_aligned_z', port 'PBigm[40]' is not connected to any nets. (LINT-28)
+Warning: In design 'add_product_and_aligned_z', port 'PBigm[39]' is not connected to any nets. (LINT-28)
+Warning: In design 'add_product_and_aligned_z', port 'PBigm[38]' is not connected to any nets. (LINT-28)
+Warning: In design 'add_product_and_aligned_z', port 'PBigm[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'flag_unit', port 'flags[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'fma16', the same net is connected to more than one pin on submodule 'add_p_z'. (LINT-33)
+   Net 'n3' is connected to pins 'Am[68]', 'PBigm[68]'', 'PBigm[67]', 'PBigm[66]', 'PBigm[65]', 'PBigm[64]', 'PBigm[63]', 'PBigm[62]', 'PBigm[61]', 'PBigm[60]', 'PBigm[59]', 'PBigm[58]', 'PBigm[57]', 'PBigm[56]', 'PBigm[55]', 'PBigm[54]', 'PBigm[53]', 'PBigm[52]', 'PBigm[51]', 'PBigm[50]', 'PBigm[49]', 'PBigm[48]', 'PBigm[47]', 'PBigm[46]', 'PBigm[45]', 'PBigm[44]', 'PBigm[43]', 'PBigm[42]', 'PBigm[41]', 'PBigm[40]', 'PBigm[39]', 'PBigm[38]', 'PBigm[0]'.
+Warning: In design 'fma16', the same net is connected to more than one pin on submodule 'specialcases'. (LINT-33)
+   Net 'z3[15]' is connected to pins 'Zs', 'z3[15]''.
+1

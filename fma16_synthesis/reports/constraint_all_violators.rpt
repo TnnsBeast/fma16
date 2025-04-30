@@ -1,0 +1,46 @@
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : constraint
+        -all_violators
+Design : fma16wrapper
+Version: W-2024.09-SP3
+Date   : Mon Apr 28 21:38:29 2025
+****************************************
+
+
+   max_delay/setup ('clk' group)
+
+                             Required        Actual
+   Endpoint                 Path Delay     Path Delay        Slack
+   -----------------------------------------------------------------
+   result_reg[7]/D          1.857686       6.424471 r     -4.566786 (VIOLATED)
+   flags_reg[2]/D           1.866238       6.430386 r     -4.564147 (VIOLATED)
+   result_reg[10]/D         1.863442       6.421827 r     -4.558385 (VIOLATED)
+   result_reg[4]/D          1.853972       6.406592 f     -4.552620 (VIOLATED)
+   result_reg[13]/D         1.866872       6.417990 r     -4.551118 (VIOLATED)
+   result_reg[12]/D         1.854946       6.404808 f     -4.549862 (VIOLATED)
+   result_reg[3]/D          1.857685       6.407112 r     -4.549427 (VIOLATED)
+   result_reg[1]/D          1.857686       6.407094 r     -4.549408 (VIOLATED)
+   result_reg[5]/D          1.857686       6.407067 r     -4.549381 (VIOLATED)
+   result_reg[9]/D          1.867376       6.404200 r     -4.536823 (VIOLATED)
+   result_reg[8]/D          1.862607       6.398448 f     -4.535842 (VIOLATED)
+   result_reg[6]/D          1.852752       6.386000 f     -4.533248 (VIOLATED)
+   result_reg[2]/D          1.867377       6.398316 r     -4.530939 (VIOLATED)
+   result_reg[0]/D          1.856276       6.383587 f     -4.527311 (VIOLATED)
+   result_reg[14]/D         1.861659       6.374468 f     -4.512809 (VIOLATED)
+   result_reg[11]/D         1.866635       6.377733 f     -4.511098 (VIOLATED)
+   flags_reg[0]/D           1.858211       6.228688 f     -4.370477 (VIOLATED)
+   result_reg[15]/D         1.859748       6.031501 f     -4.171753 (VIOLATED)
+
+
+   max_leakage_power
+
+                             Required        Actual
+   Design                   Leakage Power  Leakage Power     Slack
+   -----------------------------------------------------------------
+   fma16wrapper             0.000000       239.713638     -239.713638
+                                                                    (VIOLATED)
+
+
+1

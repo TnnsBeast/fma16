@@ -1,0 +1,204 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -nets
+        -max_paths 1
+        -transition_time
+        -capacitance
+Design : fma16wrapper
+Version: W-2024.09-SP3
+Date   : Mon Apr 28 21:38:29 2025
+****************************************
+
+Operating Conditions: PVT_1P8V_25C   Library: sky130_osu_sc_12T_ms_TT_1P8_25C.ccs
+Wire Load Model Mode: top
+
+  Startpoint: mulint_reg (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: result_reg[7]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Point                                       Fanout       Cap     Trans      Incr       Path
+  ----------------------------------------------------------------------------------------------
+  clock clk (rise edge)                                                   0.000000   0.000000
+  clock network delay (ideal)                                             0.000000   0.000000
+  mulint_reg/CK (sky130_osu_sc_12T_ms__dff_1)                   0.000000  0.000000   0.000000 r
+  mulint_reg/Q (sky130_osu_sc_12T_ms__dff_1)                    0.062245  0.305012   0.305012 f
+  mulint (net)                                  3     0.010071            0.000000   0.305012 f
+  fma16/mul (fma16)                                                       0.000000   0.305012 f
+  fma16/mul (net)                                     0.010071            0.000000   0.305012 f
+  fma16/U3090/Y (sky130_osu_sc_12T_ms__inv_2)                   0.079468  0.084107   0.389119 r
+  fma16/n2532 (net)                             6     0.016895            0.000000   0.389119 r
+  fma16/U3237/Y (sky130_osu_sc_12T_ms__or2_2)                   0.049545  0.108703   0.497821 r
+  fma16/n2502 (net)                             1     0.009288            0.000000   0.497821 r
+  fma16/U326/Y (sky130_osu_sc_12T_ms__inv_4)                    0.037830  0.050548   0.548369 f
+  fma16/n2621 (net)                             5     0.022362            0.000000   0.548369 f
+  fma16/U3266/Y (sky130_osu_sc_12T_ms__xnor2_l)                 0.075140  0.110212   0.658581 f
+  fma16/n1867 (net)                             2     0.004825            0.000000   0.658581 f
+  fma16/U3264/Y (sky130_osu_sc_12T_ms__oai22_l)                 0.180332  0.156905   0.815486 r
+  fma16/n2197 (net)                             2     0.006981            0.000000   0.815486 r
+  fma16/U3523/Y (sky130_osu_sc_12T_ms__xnor2_l)                 0.123694  0.153646   0.969132 r
+  fma16/n2615 (net)                             1     0.004894            0.000000   0.969132 r
+  fma16/U2069/Y (sky130_osu_sc_12T_ms__inv_2)                   0.050359  0.064963   1.034095 f
+  fma16/n2642 (net)                             3     0.011449            0.000000   1.034095 f
+  fma16/U3343/Y (sky130_osu_sc_12T_ms__xnor2_l)                 0.057076  0.099805   1.133900 f
+  fma16/n1958 (net)                             1     0.002488            0.000000   1.133900 f
+  fma16/U2477/Y (sky130_osu_sc_12T_ms__nand2_1)                 0.064424  0.069448   1.203348 r
+  fma16/n1903 (net)                             2     0.005157            0.000000   1.203348 r
+  fma16/U2475/Y (sky130_osu_sc_12T_ms__nand2_1)                 0.037767  0.050422   1.253770 f
+  fma16/n1076 (net)                             1     0.002488            0.000000   1.253770 f
+  fma16/U2474/Y (sky130_osu_sc_12T_ms__nand2_1)                 0.057999  0.059936   1.313706 r
+  fma16/n2912 (net)                             2     0.004838            0.000000   1.313706 r
+  fma16/U2472/Y (sky130_osu_sc_12T_ms__aoi21_l)                 0.063734  0.077187   1.390894 f
+  fma16/n2938 (net)                             2     0.004555            0.000000   1.390894 f
+  fma16/U3320/Y (sky130_osu_sc_12T_ms__oai21_l)                 0.126933  0.123829   1.514723 r
+  fma16/n2933 (net)                             2     0.004838            0.000000   1.514723 r
+  fma16/U3447/Y (sky130_osu_sc_12T_ms__aoi21_l)                 0.071992  0.099069   1.613793 f
+  fma16/n2929 (net)                             2     0.004555            0.000000   1.613793 f
+  fma16/U3096/Y (sky130_osu_sc_12T_ms__oai21_l)                 0.127302  0.126886   1.740679 r
+  fma16/n2955 (net)                             2     0.004838            0.000000   1.740679 r
+  fma16/U3095/Y (sky130_osu_sc_12T_ms__aoi21_l)                 0.072036  0.099186   1.839865 f
+  fma16/n2961 (net)                             2     0.004555            0.000000   1.839865 f
+  fma16/U3097/Y (sky130_osu_sc_12T_ms__oai21_l)                 0.124000  0.124539   1.964404 r
+  fma16/n1995 (net)                             2     0.004624            0.000000   1.964404 r
+  fma16/U3099/Y (sky130_osu_sc_12T_ms__nand2_1)                 0.048480  0.063164   2.027567 f
+  fma16/n1715 (net)                             1     0.002488            0.000000   2.027567 f
+  fma16/U2132/Y (sky130_osu_sc_12T_ms__nand2_1)                 0.077619  0.079525   2.107092 r
+  fma16/n2041 (net)                             2     0.007472            0.000000   2.107092 r
+  fma16/U1858/Y (sky130_osu_sc_12T_ms__nand2_1)                 0.058391  0.071159   2.178251 f
+  fma16/n1719 (net)                             2     0.004959            0.000000   2.178251 f
+  fma16/U1722/Y (sky130_osu_sc_12T_ms__nand2_1)                 0.083808  0.086922   2.265174 r
+  fma16/n758 (net)                              3     0.008059            0.000000   2.265174 r
+  fma16/U1857/Y (sky130_osu_sc_12T_ms__nand2_1)                 0.056476  0.069276   2.334450 f
+  fma16/n745 (net)                              2     0.004455            0.000000   2.334450 f
+  fma16/U1856/Y (sky130_osu_sc_12T_ms__nand2_1)                 0.039535  0.052614   2.387064 r
+  fma16/n635 (net)                              1     0.002578            0.000000   2.387064 r
+  fma16/U1964/Y (sky130_osu_sc_12T_ms__nand2_1)                 0.051660  0.060235   2.447299 f
+  fma16/n633 (net)                              2     0.004931            0.000000   2.447299 f
+  fma16/U1672/Y (sky130_osu_sc_12T_ms__nand2_1)                 0.119831  0.110305   2.557604 r
+  fma16/n472 (net)                              6     0.012532            0.000000   2.557604 r
+  fma16/U1668/Y (sky130_osu_sc_12T_ms__nand2_1)                 0.082333  0.097931   2.655535 f
+  fma16/n1383 (net)                             3     0.007376            0.000000   2.655535 f
+  fma16/U2354/Y (sky130_osu_sc_12T_ms__inv_1)                   0.044573  0.061438   2.716973 r
+  fma16/n946 (net)                              1     0.002800            0.000000   2.716973 r
+  fma16/U2353/Y (sky130_osu_sc_12T_ms__oai21_l)                 0.053803  0.067077   2.784050 f
+  fma16/n1662 (net)                             1     0.002602            0.000000   2.784050 f
+  fma16/U1613/Y (sky130_osu_sc_12T_ms__oai22_l)                 0.154980  0.121681   2.905730 r
+  fma16/n442 (net)                              2     0.005290            0.000000   2.905730 r
+  fma16/U1612/Y (sky130_osu_sc_12T_ms__nand2_1)                 0.061991  0.089830   2.995560 f
+  fma16/n1961 (net)                             2     0.004625            0.000000   2.995560 f
+  fma16/U1666/Y (sky130_osu_sc_12T_ms__nand2_1)                 0.058524  0.069862   3.065423 r
+  fma16/n471 (net)                              1     0.004894            0.000000   3.065423 r
+  fma16/U1665/Y (sky130_osu_sc_12T_ms__inv_2)                   0.029951  0.042342   3.107764 f
+  fma16/n1341 (net)                             3     0.007759            0.000000   3.107764 f
+  fma16/U1825/Y (sky130_osu_sc_12T_ms__nand2_1)                 0.081477  0.067912   3.175676 r
+  fma16/n582 (net)                              3     0.006730            0.000000   3.175676 r
+  fma16/U1178/Y (sky130_osu_sc_12T_ms__oai21_l)                 0.051334  0.066555   3.242231 f
+  fma16/n225 (net)                              1     0.002571            0.000000   3.242231 f
+  fma16/U1172/Y (sky130_osu_sc_12T_ms__nor2_1)                  0.070902  0.073443   3.315674 r
+  fma16/n219 (net)                              1     0.002578            0.000000   3.315674 r
+  fma16/U1170/Y (sky130_osu_sc_12T_ms__nand2_1)                 0.057985  0.069859   3.385533 f
+  fma16/n1861 (net)                             2     0.005058            0.000000   3.385533 f
+  fma16/U2348/Y (sky130_osu_sc_12T_ms__aoi21_l)                 0.093297  0.097924   3.483457 r
+  fma16/n940 (net)                              1     0.002578            0.000000   3.483457 r
+  fma16/U2347/Y (sky130_osu_sc_12T_ms__nand2_1)                 0.063717  0.077813   3.561270 f
+  fma16/n3516 (net)                             2     0.005325            0.000000   3.561270 f
+  fma16/U3459/Y (sky130_osu_sc_12T_ms__or2_2)                   0.062647  0.195099   3.756370 f
+  fma16/n2106 (net)                             2     0.015159            0.000000   3.756370 f
+  fma16/U2092/Y (sky130_osu_sc_12T_ms__inv_6)                   0.115605  0.115194   3.871564 r
+  fma16/n4307 (net)                            29     0.075757            0.000000   3.871564 r
+  fma16/U1757/Y (sky130_osu_sc_12T_ms__aoi22_l)                 0.068855  0.096115   3.967679 f
+  fma16/n4011 (net)                             1     0.002488            0.000000   3.967679 f
+  fma16/U2791/Y (sky130_osu_sc_12T_ms__nand2_1)                 0.098514  0.100788   4.068468 r
+  fma16/n4934 (net)                             3     0.009709            0.000000   4.068468 r
+  fma16/priority_enc/num[23] (lzc)                                        0.000000   4.068468 r
+  fma16/priority_enc/num[23] (net)                    0.009709            0.000000   4.068468 r
+  fma16/priority_enc/U46/Y (sky130_osu_sc_12T_ms__inv_2)        0.042512  0.055555   4.124023 f
+  fma16/priority_enc/n192 (net)                 4     0.009952            0.000000   4.124023 f
+  fma16/priority_enc/U100/Y (sky130_osu_sc_12T_ms__nand2_1)     0.064871  0.063665   4.187688 r
+  fma16/priority_enc/n191 (net)                 2     0.005157            0.000000   4.187688 r
+  fma16/priority_enc/U98/Y (sky130_osu_sc_12T_ms__nand2_1)      0.037740  0.050397   4.238085 f
+  fma16/priority_enc/n28 (net)                  1     0.002471            0.000000   4.238085 f
+  fma16/priority_enc/U59/Y (sky130_osu_sc_12T_ms__inv_1)        0.034174  0.045272   4.283357 r
+  fma16/priority_enc/n27 (net)                  1     0.002578            0.000000   4.283357 r
+  fma16/priority_enc/U93/Y (sky130_osu_sc_12T_ms__nand2_1)      0.033158  0.043694   4.327050 f
+  fma16/priority_enc/n100 (net)                 1     0.002499            0.000000   4.327050 f
+  fma16/priority_enc/U34/Y (sky130_osu_sc_12T_ms__nor2_1)       0.070692  0.081791   4.408841 r
+  fma16/priority_enc/n8 (net)                   1     0.002578            0.000000   4.408841 r
+  fma16/priority_enc/U32/Y (sky130_osu_sc_12T_ms__nand2_1)      0.038375  0.051265   4.460106 f
+  fma16/priority_enc/n182 (net)                 1     0.002418            0.000000   4.460106 f
+  fma16/priority_enc/U284/Y (sky130_osu_sc_12T_ms__oai21_l)     0.091040  0.088971   4.549077 r
+  fma16/priority_enc/n195 (net)                 1     0.002578            0.000000   4.549077 r
+  fma16/priority_enc/U292/Y (sky130_osu_sc_12T_ms__nand2_1)     0.042553  0.056114   4.605191 f
+  fma16/priority_enc/n214 (net)                 1     0.002488            0.000000   4.605191 f
+  fma16/priority_enc/U266/Y (sky130_osu_sc_12T_ms__nand2_1)     0.073996  0.075206   4.680398 r
+  fma16/priority_enc/n216 (net)                 1     0.007138            0.000000   4.680398 r
+  fma16/priority_enc/U55/Y (sky130_osu_sc_12T_ms__inv_3)        0.057604  0.071019   4.751417 f
+  fma16/priority_enc/ZeroCnt[0] (net)           9     0.025842            0.000000   4.751417 f
+  fma16/priority_enc/ZeroCnt[0] (lzc)                                     0.000000   4.751417 f
+  fma16/N1753 (net)                                   0.025842            0.000000   4.751417 f
+  fma16/U1403/Y (sky130_osu_sc_12T_ms__nand2_1)                 0.083497  0.084988   4.836405 r
+  fma16/n4445 (net)                             3     0.007782            0.000000   4.836405 r
+  fma16/U1598/Y (sky130_osu_sc_12T_ms__nand2_1)                 0.073926  0.084811   4.921216 f
+  fma16/n441 (net)                              3     0.006943            0.000000   4.921216 f
+  fma16/U1492/Y (sky130_osu_sc_12T_ms__nand2_1)                 0.043023  0.058383   4.979599 r
+  fma16/n375 (net)                              1     0.002578            0.000000   4.979599 r
+  fma16/U1491/Y (sky130_osu_sc_12T_ms__nand2_1)                 0.067909  0.073166   5.052765 f
+  fma16/n1168 (net)                             3     0.006944            0.000000   5.052765 f
+  fma16/U1427/Y (sky130_osu_sc_12T_ms__nand2_1)                 0.065191  0.073750   5.126515 r
+  fma16/n348 (net)                              2     0.005157            0.000000   5.126515 r
+  fma16/U1440/Y (sky130_osu_sc_12T_ms__nand2_1)                 0.086209  0.090455   5.216969 f
+  fma16/n1349 (net)                             1     0.008764            0.000000   5.216969 f
+  fma16/U155/Y (sky130_osu_sc_12T_ms__inv_4)                    0.077494  0.094040   5.311009 r
+  fma16/n4461 (net)                            11     0.030940            0.000000   5.311009 r
+  fma16/U1339/Y (sky130_osu_sc_12T_ms__nand2_1)                 0.038414  0.051308   5.362318 f
+  fma16/n305 (net)                              1     0.002226            0.000000   5.362318 f
+  fma16/U1338/Y (sky130_osu_sc_12T_ms__oai21_l)                 0.092604  0.059634   5.421951 r
+  fma16/n2219 (net)                             1     0.002693            0.000000   5.421951 r
+  fma16/U1204/Y (sky130_osu_sc_12T_ms__oai21_l)                 0.052572  0.068270   5.490222 f
+  fma16/n1147 (net)                             1     0.002488            0.000000   5.490222 f
+  fma16/U2561/Y (sky130_osu_sc_12T_ms__nand2_1)                 0.039149  0.051645   5.541867 r
+  fma16/n2218 (net)                             1     0.002629            0.000000   5.541867 r
+  fma16/U3539/Y (sky130_osu_sc_12T_ms__aoi21_l)                 0.046699  0.044100   5.585967 f
+  fma16/n4522 (net)                             1     0.002570            0.000000   5.585967 f
+  fma16/U3560/Y (sky130_osu_sc_12T_ms__aoi21_l)                 0.129099  0.117264   5.703231 r
+  fma16/n2252 (net)                             2     0.004624            0.000000   5.703231 r
+  fma16/U158/Y (sky130_osu_sc_12T_ms__inv_l)                    0.044563  0.057199   5.760429 f
+  fma16/n1844 (net)                             1     0.002613            0.000000   5.760429 f
+  fma16/U254/Y (sky130_osu_sc_12T_ms__oai21_l)                  0.082419  0.102517   5.862946 r
+  fma16/n236 (net)                              1     0.002046            0.000000   5.862946 r
+  fma16/U1192/Y (sky130_osu_sc_12T_ms__inv_l)                   0.034586  0.047038   5.909984 f
+  fma16/n1238 (net)                             1     0.002488            0.000000   5.909984 f
+  fma16/U1527/Y (sky130_osu_sc_12T_ms__nand2_1)                 0.073564  0.072132   5.982116 r
+  fma16/n390 (net)                              3     0.007147            0.000000   5.982116 r
+  fma16/U1529/Y (sky130_osu_sc_12T_ms__nand2_1)                 0.073668  0.082940   6.065055 f
+  fma16/n431 (net)                              2     0.007107            0.000000   6.065055 f
+  fma16/U1587/Y (sky130_osu_sc_12T_ms__inv_2)                   0.082084  0.089385   6.154440 r
+  fma16/n4866 (net)                             7     0.017197            0.000000   6.154440 r
+  fma16/U2902/Y (sky130_osu_sc_12T_ms__nand2_1)                 0.071859  0.082876   6.237316 f
+  fma16/n1491 (net)                             2     0.006690            0.000000   6.237316 f
+  fma16/U2901/Y (sky130_osu_sc_12T_ms__xnor2_l)                 0.057714  0.108280   6.345596 f
+  fma16/n4763 (net)                             1     0.002571            0.000000   6.345596 f
+  fma16/U3428/Y (sky130_osu_sc_12T_ms__nor2_1)                  0.077829  0.078876   6.424471 r
+  fma16/result[7] (net)                         1     0.002852            0.000000   6.424471 r
+  fma16/result[7] (fma16)                                                 0.000000   6.424471 r
+  resultint[7] (net)                                  0.002852            0.000000   6.424471 r
+  result_reg[7]/D (sky130_osu_sc_12T_ms__dff_1)                 0.077829  0.000000   6.424471 r
+  data arrival time                                                                  6.424471
+
+  clock clk (rise edge)                                                   2.000000   2.000000
+  clock network delay (ideal)                                             0.000000   2.000000
+  result_reg[7]/CK (sky130_osu_sc_12T_ms__dff_1)                          0.000000   2.000000 r
+  library setup time                                                      -0.142315  1.857685
+  data required time                                                                 1.857685
+  ----------------------------------------------------------------------------------------------
+  data required time                                                                 1.857685
+  data arrival time                                                                  -6.424471
+  ----------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                   -4.566786
+
+
+1
